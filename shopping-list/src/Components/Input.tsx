@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEvent, KeyboardEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 interface ListProps {
   list: string[];
@@ -11,7 +11,7 @@ const Input = ({ list, setList }: ListProps) => {
     setShoppingInput(e.target.value);
   };
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addToShoppingList(shoppingInput);
     console.log(shoppingInput);
@@ -25,13 +25,13 @@ const Input = ({ list, setList }: ListProps) => {
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={shoppingInput}
           onChange={handleChange}
         ></input>
-        <button onClick={handleClick}>Add to shopping list</button>
+        <button>Add to shopping list</button>
       </form>
     </div>
   );
