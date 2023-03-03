@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, MouseEvent, KeyboardEvent, useState } from "react";
 
 interface ListProps {
   list: string[];
@@ -7,11 +7,11 @@ interface ListProps {
 
 const Input = ({ list, setList }: ListProps) => {
   const [shoppingInput, setShoppingInput] = useState("");
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setShoppingInput(e.target.value);
   };
 
-  const handleClick = (e: any) => {
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     addToShoppingList(shoppingInput);
     console.log(shoppingInput);
