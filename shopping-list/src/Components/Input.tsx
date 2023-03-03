@@ -14,7 +14,6 @@ const Input = ({ list, setList }: ListProps) => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addToShoppingList(shoppingInput);
-    console.log(shoppingInput);
   };
 
   const addToShoppingList = (shoppingItem: string) => {
